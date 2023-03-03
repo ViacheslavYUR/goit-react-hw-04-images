@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 import css from './image-gallery.module.css';
 
 const ImageGallery = ({ items, showImage }) => {
-  const element = items.map(({ id, webformatURL, largeImageURL, tag }) => {
+  const element = items.map(({ id, webformatURL, largeImageURL, tags }) => {
     return (
       <li
         onClick={() => {
-          showImage({ largeImageURL, tag });
+          showImage(largeImageURL, tags);
         }}
         className={css.item}
         key={id}
       >
-        <img className={css.item__img} src={webformatURL} alt={tag} />
+        <img className={css.item__img} src={webformatURL} alt={tags} />
       </li>
     );
   });

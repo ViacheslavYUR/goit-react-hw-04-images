@@ -1,9 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 
 import css from './imageItem.module.css';
 
-const ImageGalleryItem = ({ largeImageURL, tag }) => {
+const ImageGalleryItem = ({ largeImage }) => {
+  const { largeImageURL, tag } = largeImage;
   return (
     <>
       <img className={css.largeImage} src={largeImageURL} alt={tag} />
@@ -14,6 +14,8 @@ const ImageGalleryItem = ({ largeImageURL, tag }) => {
 export default ImageGalleryItem;
 
 ImageGalleryItem.propTypes = {
-  largeImageURL: PropTypes.string.isRequired,
-  tag: PropTypes.string,
+  largeImage: PropTypes.shape({
+    largeImageURL: PropTypes.string.isRequired,
+    tag: PropTypes.string,
+  }),
 };
